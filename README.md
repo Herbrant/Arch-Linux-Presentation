@@ -8,7 +8,3 @@ Slides per il seminario "Arch Linux" presso il Dipartimento di Matematica e Info
 - Strumenti utili(pacman, AUR, makepkg, AUR)
 - Conclusioni
 
-# Run server mode with Docker
-```
-docker run --rm --init -v $PWD:/home/marp/app -e LANG=$LANG -p 8888:8080 -p 37717:37717 marpteam/marp-cli -s .
-```

@@ -1,0 +1,68 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+\documentclass[aspectratio=169,xcolor=dvipsnames]{beamer}
+\usetheme{Simple}
+
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+% The title
+\title{Arch Linux}
+\subtitle{Una distribuzione \emph{semplice}}
+
+\author {Davide Carnemolla}
+\institute % Your institution may be shorthand to save space
+{
+    % Your institution for the title page
+    Dipartimento di Matematica e Informatica \\
+    Università degli Studi di Catania
+    \vskip 3pt
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{frame}
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+\begin{frame}{Panoramica}
+    % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+    \tableofcontents
+\end{frame}
+
+%------------------------------------------------
+\section{Cos'è una distribuzione GNU/Linux?}
+%------------------------------------------------
+\input{Distribuzione}
+
+\section{Cos'è Arch Linux?}
+\input{Arch}
+
+\section{Installazione Arch Linux}
+\input{Installazione}
+
+\section{Strumenti Utili}
+\input{Strumenti}
+
+\section{Conclusioni}
+\input{Conclusioni}
+
+\section{Contatti}
+\input{Contatti}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
