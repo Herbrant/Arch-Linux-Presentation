@@ -8,6 +8,8 @@
     \end{itemize}
 \end{frame}
 
+%------------------------------------------------
+
 \begin{frame}{Serve aiuto?}
     \begin{itemize}
         \item Installation Guide(\url{https://wiki.archlinux.org/index.php/Installation_guide})
@@ -15,4 +17,29 @@
         \item Arch Official Forum(\url{https://bbs.archlinux.org/})
         \item ...
     \end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}{Creazione chiavetta USB}
+    Prima di tutto sarà necessario creare una chiavetta USB avviabile.\\È possibile scaricare l'iso da \url{https://archlinux.org/download/}\\
+    Per la creazione della chiavetta è possibile utilizzare:
+    \begin{itemize}
+        \item balenaEtcher(Mac, Windows, Linux)
+        \item dd(Linux)
+        \item Rufus(Windows)
+        \item ...
+    \end{itemize}
+
+    \begin{block}{dd}
+        \$ dd if=/percorso/a/archlinux.iso of=/dev/sd[x] bs=4M\\
+    \end{block}
+    \begin{alertblock}{Tip}
+        Effettuate la primissima installazione su macchina virtuale per evitare il rischio di rompere tutto.
+    \end{alertblock}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{Avvio da chiavetta USB}
+    
 \end{frame}
