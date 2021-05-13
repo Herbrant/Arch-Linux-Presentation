@@ -1,13 +1,8 @@
 \begin{frame}{Pre-installazione}
-    Prima di procedere con l'installazione dobbiamo "architettare"
+    Prima di procedere con l'installazione dobbiamo ``architettare''
     il nostro sistema.
     \begin{itemize}
         \item \textbf{Disco}
-        \begin{enumerate}
-            \item Partizionamento
-            \item Filesystem
-            \item Cifratura
-        \end{enumerate}
         \item \textbf{Display Server}
         \item \textbf{Desktop Environment}
         \item ...
@@ -24,9 +19,9 @@ Per questa installazione faremo un partizionamento abbastanza semplice:
         \hline
         Boot/EFI & /boot & FAT32 & 500MB \\ 
         \hline
-        Root & / & BTRFS & 31.5GB \\ 
+        Root & / & ext4 & 31.5GB \\ 
         \hline
-        Swap & /swap & - & 8GB \\
+        Swap & - & - & 8GB \\
         \hline
     \end{tabular}
 \end{center}
@@ -34,15 +29,7 @@ Per questa installazione faremo un partizionamento abbastanza semplice:
 Per la dimensioni delle partizioni si presuppone di avere un disco di 40GB.
 \end{frame}
 
-%------------------------------------------------
-
-\begin{frame}{Perché BTRFS?}
-
-\end{frame}
-
-%------------------------------------------------
-
-\begin{frame}{Disco(3) - Cifratura}
+\begin{frame}{Disco(2) - Cifratura}
     \begin{figure}[h]
         \includegraphics[width=0.3\textwidth]{images/encryption.png}
     \end{figure}
@@ -61,8 +48,8 @@ I sistemi GNU/Linux supportano 2 tipi di cifratura del disco:
     \end{figure}
 \begin{itemize}
     \item Cifratura on-the-fly
-    \item Utilizzo di uno "strato cuscinetto" per cifrare/decifrare i dati
-    \item Possibilità di cifrare dischi "a caldo"
+    \item Utilizzo di uno ``strato cuscinetto'' per cifrare/decifrare i dati
+    \item Possibilità di cifratura per dischi già in uso
     \item Non cifra i metadati
 \end{itemize}
 \end{frame}
@@ -75,14 +62,26 @@ I sistemi GNU/Linux supportano 2 tipi di cifratura del disco:
     \end{figure}
 \begin{itemize}
     \item Opera al di sotto del filesystem
-    \item Cifratura solo a "freddo"
+    \item Cifratura solo per nuove partizioni
     \item Più veloce (anche se parliamo di casi d'uso differenti)
 \end{itemize}
 \end{frame}
 
 %------------------------------------------------
 \begin{frame}{Display Server}
-    %Il \textbf{display server} è la componente software responsabile di input e output 
+    Il \textbf{display server} è la componente software responsabile di input e output nei sistemi GNU/Linux.
+    I display server sono poi utilizzati dai desktop environment per svolgere il loro lavoro.
+    I display server più conosciuti sono:
+    \begin{itemize}
+        \item Xorg (storico)
+        \item Wayland (recente)
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
+
+%------------------------------------------------
+\begin{frame}{Xorg vs Wayland}
+
 \end{frame}
 %------------------------------------------------
 
@@ -105,13 +104,21 @@ Per questa installazione userò \textbf{GNOME}.
 \end{frame}
 
 %------------------------------------------------
+\begin{frame}{Installazione avanzata}
+    \begin{itemize}
+        \item Utilizzo di \textbf{BTRFS} come filesystem
+        \item \textbf{Snapshot di sistema} e sincronizzazione dei delta con un server esterno
+        \item Cifratura della partizione di boot sfruttando dei workaround
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
 
 \begin{frame}{Serve aiuto?}
     \begin{itemize}
         \item Installation Guide
         \item Arch Official Wiki(\url{https://wiki.archlinux.org/})
         \item Arch Official Forum(\url{https://bbs.archlinux.org/})
-        \item ...Arch Linux User Group Catania(?)
+        \item Contattami!
     \end{itemize}
 \end{frame}
 
@@ -126,21 +133,28 @@ Per questa installazione userò \textbf{GNOME}.
 \end{frame}
 
 %------------------------------------------------
-
-%------------------------------------------------
-\begin{frame}{\textit{archinstall} (2021)}
+\begin{frame}{\textit{archinstall}}
     \begin{figure}[h]
         \includegraphics[width=0.25\textwidth]{images/archinstall.png}
     \end{figure}
 Nel 2021 Arch Linux decide di rilasciare un tool di installazione guidata scritto in python dal nome \textbf{archinstall}. \\
 Questo strumento può essere usato in due modalità:
-in due modalità:
     \begin{itemize}
         \item installazione guidata
         \item libreria python (per scrivere i propri script d'installazione)
     \end{itemize}
-\vspace{10pt}
-Per questo seminario utilizzeremo archinstall.
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}{\textit{archinstall} come libreria}
+    \begin{itemize}
+        \item È possibile utilizzare la libreria per scrivere il proprio script d'installazione
+        \item Lo script è indipendente dalle operazioni che vengono effettuate ``al di sotto''
+        \item È possibile scrivere lo script una volta ed utilizzarlo in tutte le proprie macchine
+    \end{itemize}
+
+    È possibile trovare un esempio su
+    \url{https://github.com/archlinux/archinstall/blob/master/examples/minimal.py}
 \end{frame}
 
 %------------------------------------------------
@@ -181,6 +195,20 @@ Per questo seminario utilizzeremo archinstall.
 \end{frame}
 
 %------------------------------------------------
-\begin{frame}{Connessione ad internet}
-    
+\begin{frame}{Problemi di connessione?}
+Puoi verificare il funzionamento della connessione attraverso
+lo strumento \textit{ping}:
+\begin{block}{}
+    \$ ping archlinux.org
+\end{block}
+
+Strumenti utili per il collegamento:
+\begin{itemize}
+    \item ip
+    \item iwctl (wifi)
+\end{itemize}
+
+Pagina Wiki: \\
+\url{https://wiki.archlinux.org/title/Installation_guide\#Connect_to_the_internet}
+
 \end{frame}
