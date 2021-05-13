@@ -112,6 +112,31 @@ Per questa installazione userò \textbf{GNOME}.
     \end{itemize}
 \end{frame}
 %------------------------------------------------
+\begin{frame}{BTRFS}
+    \begin{figure}[h]
+        \includegraphics[width=0.4\textwidth]{images/btrfs.png}
+    \end{figure}
+    \textbf{BTRFS} (B-tree FS o Butter FS) è un filesystem sviluppato da Oracle con licenza GPL.\\
+    \vspace{10pt}
+    Caratteristiche principali:
+    \begin{itemize}
+        \item \textbf{Copy-on-write}
+        \item Compressione trasparente(ZLib, LZO, ZSTD)
+        \item Checksum su dati e metadati
+        \item File di swap
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
+\begin{frame}{BTRFS: snapshot}
+    Grazie alla copy-on-write fare snapshot diventa semplice ed efficiente, in particolare:
+    \begin{itemize}
+        \item Dimensioni ridotte grazie ai backup incrementali
+        \item Tempi di creazione praticamente nulli
+        \item Avvio degli snapshot direttamente da GRUB
+        \item Sincronizzazione degli snapshot con un server remoto
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
 
 \begin{frame}{Serve aiuto?}
     \begin{itemize}
