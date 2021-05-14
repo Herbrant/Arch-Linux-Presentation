@@ -80,8 +80,31 @@ I sistemi GNU/Linux supportano 2 tipi di cifratura del disco:
 %------------------------------------------------
 
 %------------------------------------------------
-\begin{frame}{Xorg vs Wayland}
-
+\begin{frame}{X Window System}
+    \begin{figure}[h]
+        \includegraphics[width=0.3\textwidth]{images/xorg.png}
+    \end{figure}
+    \begin{itemize}
+        \item Architettura complessa
+        \item Si comunica attraverso Xlib o XCB
+        \item Problemi di sicurezza (client non isolati)
+        \item Artefatti visivi
+        \item Client remoti
+    \end{itemize}
+\end{frame}
+%------------------------------------------------
+\begin{frame}{Wayland}
+    \begin{figure}[h]
+        \includegraphics[width=0.2\textwidth]{images/wayland.png}
+    \end{figure}
+    \begin{itemize}
+        \item Architettura semplice
+        \item Comunicazione con Unix domain socket
+        \item Client isolati
+        \item Ogni frame è perfetta
+        \item Xwayland
+    \end{itemize}
+    
 \end{frame}
 %------------------------------------------------
 
@@ -128,7 +151,7 @@ Per questa installazione userò \textbf{GNOME}.
 \end{frame}
 %------------------------------------------------
 \begin{frame}{BTRFS: snapshot}
-    Grazie alla copy-on-write fare snapshot diventa semplice ed efficiente, in particolare:
+    Grazie alla copy-on-write fare snapshot diventa semplice ed efficiente, in particolare avremo:
     \begin{itemize}
         \item Dimensioni ridotte grazie ai backup incrementali
         \item Tempi di creazione praticamente nulli
@@ -178,7 +201,7 @@ Questo strumento può essere usato in due modalità:
         \item È possibile scrivere lo script una volta ed utilizzarlo in tutte le proprie macchine
     \end{itemize}
 
-    È possibile trovare un esempio su
+    Trovate un esempio su:
     \url{https://github.com/archlinux/archinstall/blob/master/examples/minimal.py}
 \end{frame}
 
